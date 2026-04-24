@@ -63,10 +63,20 @@ check_build() {
 setup_results_dir() {
     log "Setting up results directory: $RESULTS_DIR"
 
-    # Copy experiments (input data only, skip any generated subdirs)
+    # Ensure results root exists before any copies
+    mkdir -p "$RESULTS_DIR"
+
+    # Resolve the experiments source: prefer lowercase experiments/, fall back to Experiments/experiments_benchmark/
+    local exp_src=""
     if [[ -d "$PROJECT_ROOT/experiments" ]]; then
+        exp_src="$PROJECT_ROOT/experiments"
+    elif [[ -d "$PROJECT_ROOT/Experiments/experiments_benchmark" ]]; then
+        exp_src="$PROJECT_ROOT/Experiments/experiments_benchmark"
+    fi
+
+    if [[ -n "$exp_src" ]]; then
         mkdir -p "$RESULTS_EXPERIMENTS"
-        for src in "$PROJECT_ROOT/experiments"/*/; do
+        for src in "$exp_src"/*/; do
             local env_name
             env_name="$(basename "$src")"
             local dst="$RESULTS_EXPERIMENTS/$env_name"
@@ -79,7 +89,7 @@ setup_results_dir() {
             fi
         done
     else
-        log "Warning: $PROJECT_ROOT/experiments not found, skipping experiments copy"
+        log "Warning: no experiments source found (tried experiments/ and Experiments/experiments_benchmark/), skipping"
     fi
 
     # Copy config

@@ -39,13 +39,6 @@ run_one_experiment() {
 
     log "Processing $exp_name"
     "$ABLAT_BIN" "$exp_dir"
-
-    if [[ -d "$legacy_dir" ]]; then
-        mkdir -p "$ablation_dir"
-        cp -f "$legacy_dir"/ablation_*.csv "$ablation_dir"/ 2>/dev/null || true
-        rm -rf "$legacy_dir"
-        log "Migrated legacy output to $ablation_dir"
-    fi
 }
 
 run_all_experiments() {
@@ -105,5 +98,3 @@ main() {
 }
 
 main "$@"
-
-rm amtsp*

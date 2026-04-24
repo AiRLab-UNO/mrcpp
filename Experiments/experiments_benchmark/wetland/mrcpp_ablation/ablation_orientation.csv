@@ -1,0 +1,5 @@
+study,data_file,orientation,headland_scale,transition,num_robots,Et_Wh,Et_bar_Wh,total_path_len_m,max_path_len_m,total_waypoints,compute_time_ms,success
+orientation,wetland,mar,2,full,3,302.2547,285.7939,17513.4462,7844.7273,150,2148.0626,1
+orientation,wetland,angle_search,2,full,3,302.9800,295.3831,16872.2412,8012.4446,177,6231.5074,1
+orientation,wetland,pca,2,full,3,293.5237,273.7629,16903.5350,7549.5928,144,1955.4597,1
+orientation,wetland,min_width,2,full,3,289.3707,280.3311,16305.9508,7325.8257,167,7666.5953,1

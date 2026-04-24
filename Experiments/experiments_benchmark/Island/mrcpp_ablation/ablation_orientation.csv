@@ -1,0 +1,5 @@
+study,data_file,orientation,headland_scale,transition,num_robots,Et_Wh,Et_bar_Wh,total_path_len_m,max_path_len_m,total_waypoints,compute_time_ms,success
+orientation,Island,mar,2,full,3,39.0039,32.4267,1588.2745,681.0537,52,1086.5483,1
+orientation,Island,angle_search,2,full,3,40.6653,33.1287,1640.0697,663.6082,56,456.4141,1
+orientation,Island,pca,2,full,3,39.5971,31.5669,1601.1257,683.4785,55,561.2047,1
+orientation,Island,min_width,2,full,3,37.8245,29.7706,1600.5254,677.7640,55,471.7876,1

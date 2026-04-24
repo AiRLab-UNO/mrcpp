@@ -27,8 +27,8 @@ Binaries are placed in `build/`.
 
 ## 2. Directory Layout
 
-Before running any tool, copy `experiments/` and `config/` into `results/`.
-This keeps raw inputs separate from generated outputs.
+Experiment data lives in `Experiments/experiments_benchmark/<env_name>/` inside the repo.
+Before running any tool, copy it (along with `config/`) into `results/` to keep raw inputs separate from generated outputs.
 
 ```
 results/
@@ -39,10 +39,9 @@ results/
       mrcpp_basic.xml     # behavior tree for mrcpp_basic
   config/
     mrcpp_bt_ablation.xml              # ablation BT (GPS)
-    mrcpp_bt_ablation_cartesian.xml    # ablation BT (Cartesian)
 ```
 
-The helper script `analysis/setup_results.sh` does this automatically (see §5).
+The helper script `analysis/setup_results.sh` does this automatically (see §7).
 
 ---
 
@@ -75,7 +74,7 @@ Runs the coverage path planner on a single experiment and writes one CSV per rob
 Path CSVs are written to `<experiment_dir>/mrcpp_results/`:
 
 ```
-results/experiments/simple_6/mrcpp_results/
+results/experiments/simple/mrcpp_results/
   path_1.csv
   path_2.csv
   path_3.csv
@@ -99,8 +98,8 @@ Runs three ablation studies over a single experiment:
 
 | Study | What varies | Fixed values |
 |---|---|---|
-| 1 — Orientation | `mar`, `angle_search`, `pca`, `min_width` | headland\_scale=1.0, transition=full |
-| 2 — Headland Safety buffer | 0.0, 0.25, 0.5, 0.75, 1.0 | orientation=mar, transition=full |
+| 1 — Orientation | `mar`, `angle_search`, `pca`, `min_width` | headland\_scale=2.0, transition=full |
+| 2 — Headland Safety buffer | 0.0, 0.5, 1.0, 1.5, 2.0 | orientation=mar, transition=full |
 | 3 — Transition strategy | `full`, `direct`, `dijkstra_only` | orientation=mar, headland\_scale=2.0 |
 
 ### Required files inside `<experiment_dir>`
@@ -123,7 +122,7 @@ experiment directory until it finds the `config/` folder automatically.
 ### Example
 
 ```bash
-./build/mrcpp_ablation results/experiments/simple_6
+./build/mrcpp_ablation results/experiments/simple
 ```
 
 ### Output
@@ -131,7 +130,7 @@ experiment directory until it finds the `config/` folder automatically.
 Three CSVs are written to `<experiment_dir>/mrcpp_ablation/`:
 
 ```
-results/experiments/simple_6/mrcpp_ablation/
+results/experiments/simple/mrcpp_ablation/
   ablation_orientation.csv
   ablation_headland.csv
   ablation_transition.csv
@@ -232,7 +231,7 @@ Edit the `main()` function to select:
 
 1. Iterates through each benchmark environment and method combination
 2. Locates CSV path files in `planner_data/scale_result_with_start_end/{env_name}/{method}/`
-3. Calls `energy_estimator` on each valid directory containing CSV files
+3. Calls `executables/energy_estimator` (the pre-built binary in `executables/`) on each valid directory
 4. Saves energy estimation output to `energy_estimation_with_initial_location.txt` in each method directory
 
 ### Optional: Add start/end depot
@@ -266,10 +265,18 @@ The script `analysis/setup_results.sh` bootstraps a clean `results/` workspace
 and can optionally run all three tools in sequence.
 
 ```bash
-bash analysis/setup_results.sh
+bash analysis/setup_results.sh [OPTIONS]
 ```
 
-See §8 for options.
+| Option | Description |
+|---|---|
+| *(none)* | Copy experiment data and `config/` into `results/` only (auto-finds `Experiments/experiments_benchmark/`) |
+| `--run-basic` | Also run `mrcpp_basic` on every experiment |
+| `--run-ablation` | Also run `mrcpp_ablation` on every experiment |
+| `--run-energy` | Also run `energy_estimator` on every `mrcpp_results/` dir |
+| `--run-all` | Equivalent to `--run-basic --run-ablation --run-energy` |
+| `--results-dir D` | Override the results directory (default: `<project_root>/results`) |
+| `--build-dir D` | Override the build directory (default: `<project_root>/build`) |
 
 ---
 

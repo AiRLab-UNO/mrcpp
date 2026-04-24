@@ -1,0 +1,6 @@
+study,data_file,orientation,headland_scale,transition,num_robots,Et_Wh,Et_bar_Wh,total_path_len_m,max_path_len_m,total_waypoints,compute_time_ms,success
+headland,simple,mar,0,full,3,190.6886,171.9935,11022.5418,4748.1085,64,2143.4265,1
+headland,simple,mar,0.5,full,3,167.4918,151.3444,9597.6930,3366.4665,64,525.8077,1
+headland,simple,mar,1,full,3,172.9453,156.2573,9964.1590,3687.6298,63,2923.2267,1
+headland,simple,mar,1.5,full,3,157.5903,139.7130,9062.2377,3998.7517,60,691.7860,1
+headland,simple,mar,2,full,3,161.4503,143.6608,9232.5497,4083.0995,61,672.3398,1

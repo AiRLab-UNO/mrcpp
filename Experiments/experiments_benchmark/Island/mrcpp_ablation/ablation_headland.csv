@@ -1,0 +1,6 @@
+study,data_file,orientation,headland_scale,transition,num_robots,Et_Wh,Et_bar_Wh,total_path_len_m,max_path_len_m,total_waypoints,compute_time_ms,success
+headland,Island,mar,0,full,3,39.8488,34.3987,1717.4395,624.5255,64,1594.0360,1
+headland,Island,mar,0.5,full,3,41.7244,35.2267,1773.5256,727.6267,60,451.1734,1
+headland,Island,mar,1,full,3,42.3898,34.6242,1797.3024,702.3644,54,455.5587,1
+headland,Island,mar,1.5,full,3,36.7398,31.2368,1584.4606,706.7414,51,393.2411,1
+headland,Island,mar,2,full,3,39.0039,32.4267,1588.2745,681.0537,52,1040.4047,1

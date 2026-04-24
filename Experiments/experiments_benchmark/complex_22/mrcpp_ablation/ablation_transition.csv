@@ -1,0 +1,4 @@
+study,data_file,orientation,headland_scale,transition,num_robots,Et_Wh,Et_bar_Wh,total_path_len_m,max_path_len_m,total_waypoints,compute_time_ms,success
+transition,complex_22,mar,2,full,3,275.9082,253.3689,15674.2646,6087.2279,128,1497.4000,1
+transition,complex_22,mar,2,direct,3,267.8510,245.3109,15394.0771,6087.3906,107,1456.7165,1
+transition,complex_22,mar,2,dijkstra_only,3,267.8510,245.3109,15394.0771,6087.3906,107,1470.3690,1
