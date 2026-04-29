@@ -1,6 +1,6 @@
 # MRCPP — Multi-Robot Coverage Path Planner
 
-## Paper Link:  https://arxiv.org/abs/2604.22189
+[![arXiv](https://img.shields.io/badge/arXiv-2604.22189-b31b1b.svg)](https://arxiv.org/abs/2604.22189)
 
 ## Overview
 
@@ -305,3 +305,17 @@ for d in results/experiments/*/mrcpp_results/; do
     ./build/energy_estimator "$d" --latlon
 done
 ```
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@misc{raxit2026energyefficientmultirobotcoveragepath,
+  title={Energy-Efficient Multi-Robot Coverage Path Planning of Non-Convex Regions of Interests}, 
+  author={Sourav Raxit and Jose Fuentes and Paulo Padrao and Abdullah Al Redwan Newaz and Md Tamjidul Hoque and Mark Kulp and Leonardo Bobadilla},
+  year={2026},
+  eprint={2604.22189},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  url={https://arxiv.org/abs/2604.22189}
+}
