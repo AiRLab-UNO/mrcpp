@@ -1,5 +1,7 @@
 # MRCPP — Multi-Robot Coverage Path Planner
 
+# Paper Link:  https://arxiv.org/abs/2604.22189
+
 ## Overview
 
 This project provides three executables:
