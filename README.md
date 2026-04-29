@@ -1,4 +1,4 @@
-# MRCPP — Multi-Robot Coverage Path Planner
+# Energy-Efficient Multi-Robot Coverage Path Planning of Non-Convex Regions of Interests(MRCPP)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2604.22189-b31b1b.svg)](https://arxiv.org/abs/2604.22189)
 
